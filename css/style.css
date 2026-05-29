@@ -7,10 +7,35 @@
     font-family: "Arvo", serif;
 }
 
+:root {
+    --cor-texto: #fafafa;
+    --bg-imagem: url('../assets/madalena.jpg');
+    --main-border: 1px solid #fffffff1;
+    --main-bg: linear-gradient(hsla(0, 9%, 84%, 0.125), hsla(60, 7%, 44%, 0.502));
+    --link-border: 1px solid #afa999;
+    --link-bg: hsl(0, 0%, 44%);
+    --link-texto: #fafafa;
+    --link-bg-hover: #664739;
+    --btn-troca-bg: #664739;
+
+}
+
+body.light {
+    --cor-texto: hsl(0, 3%, 72%);
+    --bg-imagem: url('../assets/madalena-pb.jpg');
+    --main-border: 1px solid hwb(0 80% 15% / 0.945);
+    --main-bg: linear-gradient(hwb(0 18% 81% / 0.125), hwb(60 23% 75% / 0.502));
+    --link-border: 1px solid hwb(47 34% 63%);
+    --link-bg: hwb(0 20% 79%);
+    --link-texto: #fafafa;
+    --link-bg-hover: hsl(20, 27%, 19%);
+    --btn-troca-bg: hsl(20, 25%, 12%);
+}
+
 body {
     width: 100%;
     height: 100dvh;
-    background-image: url('../assets/madalena.jpg');
+    background-image: var(--bg-imagem);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -21,13 +46,13 @@ body {
 main {
     width: 300px;
     padding: 4.75rem 1rem 1rem 1rem;
-    border: 1px solid #fffffff1;
-    background-image: linear-gradient(hsla(0, 9%, 84%, 0.125), hsla(60, 7%, 44%, 0.502));
-    backdrop-filter: blur(2px);
+    border: var(--main-border);
+    background-image: var(--main-bg) backdrop-filter: blur(2px);
     position: relative;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 
     h1 {
         text-align: center;
@@ -40,7 +65,6 @@ main {
     .foto {
         width: 120px;
         height: 120px;
-        background-color: #ececec;
         border-radius: 50%;
         position: absolute;
         top: 0;
@@ -97,10 +121,10 @@ main {
                 justify-content: center;
                 align-items: center;
                 gap: .3rem;
-                border: 1px solid #afa999;
+                border: var(--link-border);
                 border-radius: .5rem;
-                background-color: hsl(0, 0%, 44%);
-                color: #fafafa;
+                background-color: var(--link-bg);
+                color: var(--link-texto);
                 text-decoration: none;
                 transition: 300ms;
 
@@ -116,5 +140,23 @@ main {
                 }
             }
         }
+    }
+}
+
+#trocaTema {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: var(--main-border);
+    background-color: var(--btn-troca-bg);
+    color: var(--cor-texto);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    transition: 300ms all;
+
+    &:hover {
+        transform: scale(1.1);
     }
 }
